@@ -127,67 +127,54 @@ function extractArticles(data){
         {updateReactValue(data[i].id, 'emojiButton3')
         emojiButton3.disabled = true;});        
         
+        let commentButton = document.createElement('button');
+        commentButton.textContent = "show comments"
+        commentButton.id = `commentButton${i+1}`
+        commentButton.addEventListener('click', () => {
+            showCommentSection(i+1);
+        });
+
         targetParagraph.append(emojiButton1);
         targetParagraph.append(emojiCounter1);
         targetParagraph.append(emojiButton2);
         targetParagraph.append(emojiCounter2);
         targetParagraph.append(emojiButton3);
         targetParagraph.append(emojiCounter3);
+        targetParagraph.append(commentButton);
 
         let lineBreak = document.createElement('br');
         let anotherLineBreak = document.createElement('br');
         targetParagraph.append(lineBreak);
         targetParagraph.append(anotherLineBreak);
-<<<<<<< HEAD
         let commentSection = document.createElement('section');
+        commentSection.id = `sectionToHide${i + 1}`;
+        commentSection.style.display = "none";
         let newHeader = document.createElement('h3');
         newHeader.textContent = "Comments section"
         commentSection.append(newHeader);
-=======
-        let newHeader = document.createElement('h3');
-        newHeader.textContent = "Comments section"
-        targetParagraph.append(newHeader);
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
         let newCommentArea = document.createElement('textarea');
         newCommentArea.cols = "33";
         newCommentArea.rows = "5";
         newCommentArea.id = "newComment";
-<<<<<<< HEAD
         commentSection.append(newCommentArea);
         let yetAnotherLineBreak = document.createElement('br');
         commentSection.append(yetAnotherLineBreak);
-=======
-        targetParagraph.append(newCommentArea);
-        let yetAnotherLineBreak = document.createElement('br');
-        targetParagraph.append(yetAnotherLineBreak);
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
         let commentAppendButton = document.createElement('button');
         commentAppendButton.textContent = "Submit your comment";
         commentAppendButton.addEventListener('click', ()=>{
             addAComment(newCommentArea.value, i + 1);
         })
-<<<<<<< HEAD
         commentSection.append(commentAppendButton);
-=======
-        targetParagraph.append(commentAppendButton);
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
 
         if (data[i].comments){
             for (let j=0; j<data[i].comments.length; j++){
                 let comment = document.createElement('p');
                 comment.textContent = data[i].comments[j];
-<<<<<<< HEAD
                 commentSection.append(comment);
             } 
         }
 
         targetParagraph.append(commentSection);
-=======
-                targetParagraph.append(comment);
-            } 
-        }
-
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
 
     }
 
@@ -289,4 +276,20 @@ async function reFetchComments(){
     let newComment = document.createElement('p');
     newComment.textContent = requestedArticle.comments[requestedArticle.comments.length - 1];
     targetParagraph.append(newComment);
+}
+
+function showCommentSection(id){
+    let sectionToShow = document.getElementById(`sectionToHide${id}`);
+    let showButton = document.getElementById(`commentButton${id}`);
+    let isItShowing = sectionToShow.style.display;
+    switch (isItShowing){
+        case "block":
+            showButton.textContent = "Show Comments";
+            sectionToShow.style.display = "none";
+            break;
+        case "none":
+            showButton.textContent = "Hide Comments";
+            sectionToShow.style.display = "block";
+            break;
+    }
 }

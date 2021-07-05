@@ -5,27 +5,17 @@
     "title": "Article 1",
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor malesuada nunc in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque imperdiet sapien, et ullamcorper augue imperdiet eget. Curabitur sodales, erat sed efficitur feugiat, purus nisl egestas lectus, vitae elementum leo justo quis nisi. Morbi in malesuada tellus. Duis nec arcu nisi. Suspendisse potenti.",
     "date": "2021-07-05T13:37:52.653Z",
-<<<<<<< HEAD
     "emoji1": 16,
     "emoji2": 7,
     "emoji3": 5,
-=======
-    "emoji1": 14,
-    "emoji2": 6,
-    "emoji3": 4,
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
     "comments": [
       "My first comment",
       "My second comment",
       "I'm adding a new comment here.",
       "This is another new comment.",
       "This is a fifth comment.",
-<<<<<<< HEAD
       "This is a sixth comment.",
       "This is a seventh comment."
-=======
-      "This is a sixth comment."
->>>>>>> c30857365a7bba27799dd1a25b28a89fc3dfbda9
     ]
   },
   {
