@@ -32,5 +32,16 @@
       "Another test comment",
       "A new comment"
     ]
+  },
+  {
+    "title": "Article 2",
+    "id": 3,
+    "tag": "Film",
+    "article": "I'm testing again",
+    "date": "2021-07-05T16:45:31.215Z",
+    "comments": [],
+    "emoji1": 0,
+    "emoji2": 0,
+    "emoji3": 0
   }
 ]

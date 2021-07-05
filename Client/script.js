@@ -1,53 +1,8 @@
-class Article {
-    constructor(length, article){
-        this.id = length + 1;
-        this.tag = "Music"
-        this.article = article;
-        this.date = new Date();
-        this.comments = [];
-        this.emoji1 = 0;
-        this.emoji2 = 0;
-        this.emoji3 = 0;
-    }
-}
+window.onload = function() {
+    getAllData();
+  };
 let targetParagraph = document.getElementById("test");
-let musicButton = document.getElementById("musicSubmit");
-musicButton.addEventListener('click', getMusicData);
-let sportButton = document.getElementById("sportSubmit");
-sportButton.addEventListener('click', getSportData);
-let allButton = document.getElementById('allData');
-allButton.addEventListener('click', getAllData)
-let formButton = document.getElementById('formSubmit');
-formButton.addEventListener('click', getDataLength);
-let textArea = document.getElementById('articleToSubmit');
-let musicRadioButton = document.getElementById('music');
-let sportRadioButton = document.getElementById('sport');
-let otherRadioButton = document.getElementById('other');
-textArea.addEventListener('change', () => {
-    if (textArea.value){
-        if (musicRadioButton.checked || sportRadioButton.checked || otherRadioButton.checked){
-            formButton.disabled = false;
-        } 
-    } else {
-        formButton.disabled = true;
-    }
 
-})
-musicRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-sportRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-otherRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
 
 async function getMusicData(){
     let data = await fetch("http://localhost:3000/data/Music");
@@ -180,39 +135,6 @@ function extractArticles(data){
 
 };
 
-async function getDataLength(e){
-    e.preventDefault();
-    let data = await fetch("http://localhost:3000/data");
-    let dataJson = await data.json();
-    addNewArticle(dataJson.length);
-    
-}
-
-function addNewArticle(length){
-    let textField = document.getElementById("articleToSubmit");
-    console.log("I'm here");
-    let dataToSend = new Article(length, textField.value);
-    // let dataToSend = {
-    //     id: length + 1,
-    //     tag: "Music",
-    //     article: textField.value,
-    //     other: "today",
-    //     emoji1: 0,
-    //     emoji2: 0,
-    //     emoji3: 0
-    // }
-    console.log(dataToSend);
-    postJsonData(dataToSend);
-}
-
-async function postJsonData(jsonObject) {
-    const response = await fetch("http://localhost:3000/data", {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(jsonObject)
-    });
-    const actualResponse = await response.json();
-}
 
 function updateReactValue(id, buttonString){
     let dataToSend = {

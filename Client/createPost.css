@@ -1,0 +1,7 @@
+input[type="radio"] {
+  display: inline;
+}
+
+textarea {
+  resize: none !important;
+}
