@@ -89,6 +89,17 @@ function extractArticles(data){
             showCommentSection(i+1);
         });
 
+        if (data[i].gif){
+            let newGIF = document.createElement('img');
+            newGIF.src = data[i].gif;
+            newGIF.style.display = "block";
+            newGIF.style.marginBottom = "8px";
+            targetParagraph.append(newGIF);
+            
+        }
+
+
+
         targetParagraph.append(emojiButton1);
         targetParagraph.append(emojiCounter1);
         targetParagraph.append(emojiButton2);
@@ -121,11 +132,15 @@ function extractArticles(data){
         })
         commentSection.append(commentAppendButton);
 
+
+
+
         if (data[i].comments){
             for (let j=0; j<data[i].comments.length; j++){
                 let comment = document.createElement('p');
                 comment.textContent = data[i].comments[j];
                 commentSection.append(comment);
+                
             } 
         }
 

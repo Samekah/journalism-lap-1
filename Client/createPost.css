@@ -9,3 +9,32 @@ textarea {
 .removeBorder {
   border: none !important;
 }
+
+#gifSection {
+  display: none;
+  height: 230px;
+  width: 700px;
+  border: 1px solid black;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+#grid {
+  height: 305px;
+  width: 800px;
+  border: 1px solid black;
+}
+
+.row,
+.col {
+  border: 1px solid black;
+}
+
+.col {
+  height: 150px;
+  width: 100px;
+}
+
+.selected {
+  border: 2px solid rgb(102, 235, 102);
+}

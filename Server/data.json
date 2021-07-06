@@ -16,7 +16,8 @@
       "This is a fifth comment.",
       "This is a sixth comment.",
       "This is a seventh comment."
-    ]
+    ],
+    "gif": ""
   },
   {
     "id": 2,
@@ -31,17 +32,31 @@
       "A test comment",
       "Another test comment",
       "A new comment"
-    ]
+    ],
+    "gif": ""
   },
   {
-    "title": "Article 2",
+    "title": "GIF TEST",
     "id": 3,
-    "tag": "Film",
-    "article": "I'm testing again",
-    "date": "2021-07-05T16:45:31.215Z",
+    "tag": "Lifestyle",
+    "article": "gif gif gif",
+    "date": "2021-07-06T11:42:32.610Z",
     "comments": [],
-    "emoji1": 1,
-    "emoji2": 1,
-    "emoji3": 1
+    "emoji1": 0,
+    "emoji2": 0,
+    "emoji3": 0,
+    "gif": "https://media3.giphy.com/media/d1E2IByItLUuONMc/200.gif?cid=b830f683tmv82nky1uesbvw7py2p8r89kgnklkhwf06tsju0&rid=200.gif&ct=g"
+  },
+  {
+    "title": "GIF TEST",
+    "id": 4,
+    "tag": "Music",
+    "article": "gif gif gif x2",
+    "date": "2021-07-06T11:43:47.490Z",
+    "comments": [],
+    "emoji1": 0,
+    "emoji2": 0,
+    "emoji3": 0,
+    "gif": "https://media2.giphy.com/media/l4JyOCNEfXvVYEqB2/200.gif?cid=b830f683kxkkcz88xt4bbqq5yw1keps7bpnuqbsw6ynx4a5j&rid=200.gif&ct=g"
   }
 ]
