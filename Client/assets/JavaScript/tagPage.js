@@ -1,27 +1,33 @@
 window.onload = function() {
-    getAllData("recent");
-    getAllData("popular");
-  };
-let recentTargetParagraph = document.getElementById("recentSort");
-let popularTargetParagraph = document.getElementById("popularSort");
+    getTagData("none");
+};
+let sectionToAppend = document.getElementById('tagData');
+const queryString = window.location.search;
+console.log(queryString);
+let recentFilterButton = document.getElementById("recentFilter");
+recentFilterButton.addEventListener('click', ()=>{
+    sectionToAppend.innerHTML = "";
+    getTagData("recent");
+})
+let popularFilterButton = document.getElementById("popularFilter");
+popularFilterButton.addEventListener('click', ()=>{
+    sectionToAppend.innerHTML = "";
+    getTagData("popular");
+})
+const urlParams = new URLSearchParams(queryString);
+
+document.getElementById('pageName').textContent = urlParams.get('tag');
 
 
-async function getAllData(word){
-    let data = await fetch("http://localhost:3000/data");
+async function getTagData(filter){
+    let data = await fetch(`http://localhost:3000/data/${urlParams.get('tag')}`);
     let dataJson = await data.json();
-    extractArticles(dataJson, word);
+    extractArticles(dataJson, filter);
 }
 
-function extractArticles(data, word){
-    let targetParagraph;
-    if (word === "recent"){
-        data.sort((a, b) => {
-            let da = new Date(a.date),
-            db = new Date(b.date);
-            return db - da;
-        }); 
-        targetParagraph = recentTargetParagraph;  
-    } else {
+function extractArticles(data, filter){
+    let targetParagraph = sectionToAppend;
+    if (filter === "popular"){
         data.sort((a,b) => {
             let pa = 0;
             pa += a.emoji1;
@@ -33,9 +39,13 @@ function extractArticles(data, word){
             pb += b.emoji3;
             return pb - pa;
         });
-        targetParagraph = popularTargetParagraph;
-    }
-
+    } else {
+        data.sort((a, b) => {
+            let da = new Date(a.date),
+            db = new Date(b.date);
+            return db - da;
+        })
+    };
     for (let i=0; i<data.length; i++){
         let titleHeader = document.createElement('h2');
         titleHeader.textContent = data[i].title;
@@ -49,27 +59,14 @@ function extractArticles(data, word){
         let para = document.createElement('p');
         para.textContent = data[i].article;
         targetParagraph.append(para);
-        // emojiReacts1 = data[i].emoji1;
-        // emojiReacts2 = data[i].emoji2;
-        // emojiReacts3 = data[i].emoji3;
-        // for (let j=0; j<3; j++){
-        //     let emojiButton = document.createElement('button');
-        //     let emojiCounter = document.createElement('h5');
-        //     let toCall = 0;
-        //     emojiCounter.textContent = toCall;
-        //     emojiButton.id = `emoji${j+1}Btn`;
-        //     emojiButton.textContent = `Emoji ${j+1}`;
-        //     targetParagraph.append(emojiButton);
-        //     targetParagraph.append(emojiCounter);
-        // }
         let emoji1Reacts = data[i].emoji1;
         let emoji2Reacts = data[i].emoji2;
         let emoji3Reacts = data[i].emoji3;
         let emojiButton1 = document.createElement('button');
         let emojiCounter1 = document.createElement('h5');
         emojiCounter1.textContent = emoji1Reacts;
-        emojiButton1.id = `id${i+1}${word}Emoji1Btn`;
-        emojiCounter1.id  = `id${i+1}${word}EmojiCounter1`;
+        emojiButton1.id = `id${i+1}Emoji1Btn`;
+        emojiCounter1.id  = `id${i+1}EmojiCounter1`;
         emojiButton1.textContent = "Emoji 1";
         emojiButton1.addEventListener('click', () => 
         {updateReactValue(data[i].id, 'emojiButton1')
@@ -97,9 +94,9 @@ function extractArticles(data, word){
         
         let commentButton = document.createElement('button');
         commentButton.textContent = "show comments"
-        commentButton.id = `commentButton${i+1}${word}`
+        commentButton.id = `commentButton${i+1}`
         commentButton.addEventListener('click', () => {
-            showCommentSection(i+1, word);
+            showCommentSection(i+1);
         });
 
         if (data[i].gif){
@@ -126,7 +123,7 @@ function extractArticles(data, word){
         targetParagraph.append(lineBreak);
         targetParagraph.append(anotherLineBreak);
         let commentSection = document.createElement('section');
-        commentSection.id = `sectionToHide${i + 1}${word}`;
+        commentSection.id = `sectionToHide${i + 1}`;
         commentSection.style.display = "none";
         let newHeader = document.createElement('h3');
         newHeader.textContent = "Comments section"
@@ -160,9 +157,7 @@ function extractArticles(data, word){
         targetParagraph.append(commentSection);
 
     }
-
-};
-
+}
 
 function updateReactValue(id, buttonString){
     let dataToSend = {
@@ -228,9 +223,9 @@ async function reFetchComments(){
     targetParagraph.append(newComment);
 }
 
-function showCommentSection(id, word){
-    let sectionToShow = document.getElementById(`sectionToHide${id}${word}`);
-    let showButton = document.getElementById(`commentButton${id}${word}`);
+function showCommentSection(id){
+    let sectionToShow = document.getElementById(`sectionToHide${id}`);
+    let showButton = document.getElementById(`commentButton${id}`);
     let isItShowing = sectionToShow.style.display;
     switch (isItShowing){
         case "block":

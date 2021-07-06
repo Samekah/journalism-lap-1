@@ -149,7 +149,6 @@ function appendGifs(json){
 }
 
 function changeBorder(id, json){
-    let sectionToAppend = document.getElementById('gifSection');
     for (let i=0; i<json.data.length; i++){
         let resetButton = document.getElementById(`imgBtn${i+1}`);
         resetButton.classList.remove("selected");
@@ -158,19 +157,14 @@ function changeBorder(id, json){
     let selected = document.getElementById(id);
     selected.classList.remove("removeBorder");
     selected.classList.add("selected");
-    // let selectedGif = document.querySelector('button[class="selected"] img');
-    // let source = "";
-    // if (selectedGif){
-    //     source = selectedGif.getAttribute("src");
-    // }
-    // console.log(source);
-    // if (source){
-    //     let newGIF = document.createElement('img');
-    //     newGIF.setAttribute("src", source);
-    //     console.log(newGIF);
-    //     sectionToAppend.append(newGIF);  
-    // }
-
+    // let fakeData = [{date: "2021-07-05T13:37:52.653Z"},
+    //                  {date: "2021-07-06T13:55:50.338Z"}]
+    // fakeData.sort((a, b) => {
+    //     let da = new Date(a.date),
+    //     db = new Date(b.date);
+    //     return db - da;
+    // });
+    // console.log(fakeData);
 }
 
 function countFunc(){
