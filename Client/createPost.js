@@ -19,6 +19,7 @@ let titleInput = document.getElementById("postTitle");
 let formButton = document.getElementById('formSubmit');
 formButton.addEventListener('click', getDataLength);
 let textArea = document.getElementById('articleToSubmit');
+textArea.addEventListener('keyup', countFunc);
 let musicRadioButton = document.getElementById('music');
 let sportRadioButton = document.getElementById('sport');
 let lifestyleRadioButton = document.getElementById('lifestyle');
@@ -170,4 +171,10 @@ function changeBorder(id, json){
     //     sectionToAppend.append(newGIF);  
     // }
 
+}
+
+function countFunc(){
+    let characterCounter = document.getElementById('counterDisplay');
+    let characterNumber = textArea.value.length;
+    characterCounter.textContent = `Character Count: ${characterNumber} (limit 700)`;
 }

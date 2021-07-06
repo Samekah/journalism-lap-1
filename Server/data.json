@@ -5,7 +5,7 @@
     "title": "Article 1",
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor malesuada nunc in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque imperdiet sapien, et ullamcorper augue imperdiet eget. Curabitur sodales, erat sed efficitur feugiat, purus nisl egestas lectus, vitae elementum leo justo quis nisi. Morbi in malesuada tellus. Duis nec arcu nisi. Suspendisse potenti.",
     "date": "2021-07-05T13:37:52.653Z",
-    "emoji1": 17,
+    "emoji1": 20,
     "emoji2": 8,
     "emoji3": 7,
     "comments": [
@@ -34,29 +34,5 @@
       "A new comment"
     ],
     "gif": ""
-  },
-  {
-    "title": "GIF TEST",
-    "id": 3,
-    "tag": "Lifestyle",
-    "article": "gif gif gif",
-    "date": "2021-07-06T11:42:32.610Z",
-    "comments": [],
-    "emoji1": 0,
-    "emoji2": 0,
-    "emoji3": 0,
-    "gif": "https://media3.giphy.com/media/d1E2IByItLUuONMc/200.gif?cid=b830f683tmv82nky1uesbvw7py2p8r89kgnklkhwf06tsju0&rid=200.gif&ct=g"
-  },
-  {
-    "title": "GIF TEST",
-    "id": 4,
-    "tag": "Music",
-    "article": "gif gif gif x2",
-    "date": "2021-07-06T11:43:47.490Z",
-    "comments": [],
-    "emoji1": 0,
-    "emoji2": 0,
-    "emoji3": 0,
-    "gif": "https://media2.giphy.com/media/l4JyOCNEfXvVYEqB2/200.gif?cid=b830f683kxkkcz88xt4bbqq5yw1keps7bpnuqbsw6ynx4a5j&rid=200.gif&ct=g"
   }
 ]
