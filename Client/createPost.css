@@ -5,3 +5,7 @@ input[type="radio"] {
 textarea {
   resize: none !important;
 }
+
+.removeBorder {
+  border: none !important;
+}

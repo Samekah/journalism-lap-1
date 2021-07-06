@@ -5,9 +5,9 @@
     "title": "Article 1",
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor malesuada nunc in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque imperdiet sapien, et ullamcorper augue imperdiet eget. Curabitur sodales, erat sed efficitur feugiat, purus nisl egestas lectus, vitae elementum leo justo quis nisi. Morbi in malesuada tellus. Duis nec arcu nisi. Suspendisse potenti.",
     "date": "2021-07-05T13:37:52.653Z",
-    "emoji1": 16,
-    "emoji2": 7,
-    "emoji3": 5,
+    "emoji1": 17,
+    "emoji2": 8,
+    "emoji3": 7,
     "comments": [
       "My first comment",
       "My second comment",
@@ -24,9 +24,9 @@
     "title": "Article 2",
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor consectetur erat, a tincidunt mi imperdiet sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sagittis tellus placerat dui laoreet maximus. Nulla nec tristique enim. Phasellus egestas et augue at pulvinar. Donec iaculis tristique pellentesque. Nullam ullamcorper facilisis malesuada. Cras congue, neque quis pretium lobortis, nisl massa blandit augue, ut accumsan lorem tellus sit amet nisi. Aenean vel tortor ligula. Quisque sagittis ipsum volutpat feugiat blandit. Cras lobortis, est id iaculis varius, eros purus rutrum enim, ac luctus ex turpis eget turpis.",
     "date": "2021-07-05T13:37:52.653Z",
-    "emoji1": 11,
-    "emoji2": 8,
-    "emoji3": 7,
+    "emoji1": 13,
+    "emoji2": 10,
+    "emoji3": 9,
     "comments": [
       "A test comment",
       "Another test comment",
@@ -40,8 +40,8 @@
     "article": "I'm testing again",
     "date": "2021-07-05T16:45:31.215Z",
     "comments": [],
-    "emoji1": 0,
-    "emoji2": 0,
-    "emoji3": 0
+    "emoji1": 1,
+    "emoji2": 1,
+    "emoji3": 1
   }
 ]
