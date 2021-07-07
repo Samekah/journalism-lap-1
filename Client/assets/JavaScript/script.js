@@ -91,7 +91,8 @@ function extractArticles(data, word){
             emojiImage.style.width = "35px";
             emojiButton.append(emojiImage);
             emojiButton.addEventListener('click', () => 
-                {updateReactValue(data[i].id, `emojiButton${j+1}`)
+                {updateReactValue(data[i].id, `emojiButton${j+1}`, word)
+                    emojiCounter.textContent = emojiReactions[j] + 1;
                     emojiButton.disabled = true;
                     emojiImage.setAttribute("src", disabledPath);
                     emojiImage.style.height = "45px";
@@ -122,7 +123,8 @@ function extractArticles(data, word){
         commentSection.append(newHeader);
         let newCommentArea = document.createElement('textarea');
         newCommentArea.cols = "33";
-        newCommentArea.rows = "5";
+        newCommentArea.rows = "2";
+        newCommentArea.maxLength = 100;
         newCommentArea.id = "newComment";
         commentSection.append(newCommentArea);
         let yetAnotherLineBreak = document.createElement('br');
@@ -130,7 +132,10 @@ function extractArticles(data, word){
         let commentAppendButton = document.createElement('button');
         commentAppendButton.textContent = "Submit your comment";
         commentAppendButton.addEventListener('click', ()=>{
-            addAComment(newCommentArea.value, i + 1);
+            addAComment(newCommentArea.value, data[i].id);
+            let comment = document.createElement('p');
+            comment.textContent = newCommentArea.value;
+            commentSection.append(comment);
         })
         commentSection.append(commentAppendButton);
         if (data[i].comments){
@@ -146,10 +151,11 @@ function extractArticles(data, word){
 };
 
 
-function updateReactValue(id, buttonString){
+function updateReactValue(id, buttonString, word){
     let dataToSend = {
         id: id,
-        buttonClicked: buttonString
+        buttonClicked: buttonString,
+        word: word
     }
     createPutRequest(dataToSend);
 }
@@ -161,26 +167,8 @@ async function createPutRequest(jsonObject){
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(jsonObject)
     });
-    reFetchEmojiValue(jsonObject)
 }
 
-async function reFetchEmojiValue(object){
-    let data = await fetch("http://localhost:3000/data");
-    let dataJson = await data.json();
-    let id = object.id;
-    let buttonValue = object.buttonClicked;
-    let requestedArticle = dataJson.find(dataSet => dataSet.id === id);
-    if (buttonValue === "emojiButton1"){
-        let toUpdate = document.getElementById(`id${id}EmojiCounter1`);
-        toUpdate.textContent = requestedArticle.emoji1;
-    } else if (buttonValue === "emojiButton2"){
-        let toUpdate = document.getElementById(`id${id}EmojiCounter2`);
-        toUpdate.textContent = requestedArticle.emoji2;
-    } else if (buttonValue === "emojiButton3"){
-        let toUpdate = document.getElementById(`id${id}EmojiCounter3`);
-        toUpdate.textContent = requestedArticle.emoji3;
-    }
-}
 
 function addAComment(comment, id){
     let dataToSend = {
@@ -197,18 +185,8 @@ async function createCommentPutRequest(jsonObject){
         body: JSON.stringify(jsonObject)
     });
     console.log(jsonObject);
-    reFetchComments(jsonObject)
 }
 
-async function reFetchComments(){
-    let data = await fetch("http://localhost:3000/");
-    let dataJson = await data.json();
-    let id = object.id;
-    let requestedArticle = dataJson.find(dataSet => dataSet.id === id);
-    let newComment = document.createElement('p');
-    newComment.textContent = requestedArticle.comments[requestedArticle.comments.length - 1];
-    targetParagraph.append(newComment);
-}
 
 function showCommentSection(id, word){
     let sectionToShow = document.getElementById(`sectionToHide${id}${word}`);
