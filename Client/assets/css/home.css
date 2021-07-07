@@ -1,0 +1,52 @@
+textarea {
+  resize: none !important;
+}
+
+h5 {
+  display: inline;
+  padding: 10px;
+}
+#borderMe {
+  border: solid 2px black;
+}
+
+#dropdown {
+  margin-right: 300px;
+}
+
+.col-5 {
+  border: solid 2px black;
+  height: 800px !important;
+  width: 800px !important;
+  overflow: auto;
+}
+#recentSort {
+  margin-left: 100px;
+}
+#popularSort {
+  margin-right: 100px;
+}
+
+#mostRecent {
+  border: solid 2px black;
+  height: 800px;
+  width: 800px !important;
+  margin-left: 100px !important;
+  margin-top: 50px;
+  overflow: auto;
+  display: inline-block;
+}
+
+#mostPopular {
+  display: inline-block;
+  border: solid 2px black;
+  height: 800px;
+  width: 800px !important;
+  margin-left: 910px !important;
+  margin-top: 50px;
+  overflow: auto;
+}
+
+button[id="createPost"]a:link {
+  text-decoration: none;
+}
