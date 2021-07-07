@@ -24,54 +24,30 @@ let formButton = document.getElementById('formSubmit');
 formButton.addEventListener('click', getDataLength);
 let textArea = document.getElementById('articleToSubmit');
 textArea.addEventListener('keyup', countFunc);
-let musicRadioButton = document.getElementById('music');
-let sportRadioButton = document.getElementById('sport');
-let lifestyleRadioButton = document.getElementById('lifestyle');
-let filmRadioButton = document.getElementById('film');
-let newsRadioButton = document.getElementById('news');
-let otherRadioButton = document.getElementById('other');
 let giphyButton = document.getElementById('giphSearch');
 giphyButton.addEventListener('click', searchGif)
+let catList = ['music', 'sport', 'film', 'lifestyle', 'news', 'other'];
 textArea.addEventListener('change', () => {
     if (textArea.value){
-        if (musicRadioButton.checked || sportRadioButton.checked || otherRadioButton.checked || newsRadioButton.checked || filmRadioButton.checked || lifestyleRadioButton.checked){
-            formButton.disabled = false;
-        } 
+        for (let i = 0; i< catList.length; i++){
+            let buttonToCheck = document.getElementById(catList[i]);
+            if (buttonToCheck.checked){
+                formButton.disabled = false;
+            }
+        };
     } else {
         formButton.disabled = true;
     }
 
 })
-musicRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-sportRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-otherRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-lifestyleRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-filmRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
-newsRadioButton.addEventListener('click', () => {
-    if (textArea.value){
-        formButton.disabled = false;
-    }
-})
+for (let i = 0; i < catList.length; i++){
+    let radioButton = document.getElementById(catList[i]);
+    radioButton.addEventListener('click', () => {
+        if (textArea.value){
+            formButton.disabled = false;
+        }
+    })
+};
 
 function getRadioButton(){
     let id = localStorage.getItem("tag");
@@ -104,10 +80,10 @@ function addNewArticle(length){
         }
     }
     console.log(checkedButton);
-    if (titleInput){
+    if (titleInput.value !== ""){
         titleToUse = titleInput.value;
     } else {
-        titleToUse = `Article ${length + 1}`;
+        titleToUse = `An Untitled Article`;
     }
     let selectedGif = document.querySelector('button[class="selected"] img');
     let source = "";
@@ -117,7 +93,6 @@ function addNewArticle(length){
     
 
     let dataToSend = new Article(length, textField.value, checkedButton, titleToUse, source);
-    console.log(dataToSend);
     postJsonData(dataToSend);
 }
 
@@ -127,7 +102,11 @@ async function postJsonData(jsonObject) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(jsonObject)
     });
-    const actualResponse = await response.json();
+    navigateToHome();
+}
+
+function navigateToHome(){
+    window.location.assign("home.html")
 }
 
 async function searchGif(e){

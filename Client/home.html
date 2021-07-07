@@ -14,7 +14,6 @@
 </head>
 <body>
     <header>
-
         <h1 class="text-center">Home Page</h1>
         <nav class="navbar justify-content-center navbar-expand-lg navbar-light">
             <ul class = "navbar-nav">
@@ -42,25 +41,34 @@
             </ul>       
         </nav>
     </header>
-       <div>
-            <div class="row">
-                <div class="col-5" id="recentSort">
-                    <div class="d-flex justify-content-center">
-                        <h2>Most Recent Posts</h2>
-                    </div>
-                </div>
-                <div class="col">
-
-                </div>
-                <div class="col-5"id="popularSort">
-                    <div class="d-flex justify-content-center">
-                        <h2>Most Popular Posts</h2>
-                    </div>
-                </div>
+    <!-- initial description paragraph -->
+    <div class="container">
+        <div id="initialParaDiv" class="text-center">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis tempor turpis. Suspendisse eget tempus nisi, ullamcorper pretium tortor. Integer sagittis bibendum nisl lobortis consectetur. Etiam feugiat iaculis sapien vitae consectetur. Donec commodo magna sed nulla fringilla interdum. Morbi est dui, interdum sed lorem maximus, rutrum tincidunt lacus. Mauris mollis erat ac condimentum blandit. In gravida rhoncus odio scelerisque dapibus. Vestibulum eu sem sed ligula fermentum malesuada lobortis ut magna. Sed elementum ipsum nec justo eleifend, eu rutrum leo semper. Sed dapibus, orci at placerat bibendum, tellus neque facilisis eros, ut molestie enim quam vitae tortor. Nunc sed posuere nisi, vitae ultricies turpis. Aenean vulputate accumsan elit, ut pretium ipsum accumsan dictum. Vivamus et faucibus nibh. Proin ante ligula, sagittis quis ex sit amet, semper feugiat odio. 
+            </p>
+        </div>
+    </div>
+    <br>
+    <!-- two sections for most recent and most popular -->
+    <div class="row">
+        <div class="col-5" id="recentSort">
+            <div class="d-flex justify-content-center">
+                <h2>Most Recent Posts  <img src="https://static.thenounproject.com/png/3201871-200.png" height ="40" width="40"></h2>
             </div>
         </div>
+        <div class="col">
+
+        </div>
+        <div class="col-5"id="popularSort">
+            <div class="d-flex justify-content-center">
+                <h2>Most Popular Posts<img src="https://i.pinimg.com/originals/ef/c5/cf/efc5cfdfabf790c58e1acf288fb5ccac.png" height ="40" width="60"></h2>
+            </div>
+        </div>
+    </div>
 
     <br>
+    <!-- button to navigate to create post page -->
     <div class="text-center">
         <button id="createPost">
             <a href="createPost.html">Create a post</a>
