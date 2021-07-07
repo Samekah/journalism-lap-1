@@ -80,13 +80,36 @@ function extractArticles(data, filter){
         for (let j=0; j<3; j++){
             let emojiButton = document.createElement('button');
             let emojiCounter = document.createElement('h5');
+            let emojiImage = document.createElement('img');
             emojiCounter.textContent = emojiReactions[j];
             emojiButton.id = `id${i+1}Emoji${j+1}Btn`
             emojiCounter.id  = `id${i+1}EmojiCounter${j+1}`;
-            emojiButton.textContent = `Emoji ${j+1}`
+            let imagePath;
+            let disabledPath;
+            switch(j){
+                case 0: 
+                    imagePath = "./assets/images/emptyHeart.png";
+                    disabledPath = "./assets/images/fullHeart.png";
+                    break;
+                case 1: 
+                    imagePath = "./assets/images/emptyThumbUp.png";
+                    disabledPath = "./assets/images/fullThumbUp.png";
+                    break;
+                case 2:
+                    imagePath = "./assets/images/emptyThumbDown.png";
+                    disabledPath = "./assets/images/fullThumbDown.png";
+                    break;
+            }
+            emojiImage.setAttribute("src", imagePath);
+            emojiImage.style.height = "35px";
+            emojiImage.style.width = "35px";
+            emojiButton.append(emojiImage);
             emojiButton.addEventListener('click', () => 
                 {updateReactValue(data[i].id, `emojiButton${j+1}`)
                     emojiButton.disabled = true;
+                    emojiImage.setAttribute("src", disabledPath);
+                    emojiImage.style.height = "45px";
+                    emojiImage.style.width = "45px";
                 });
             targetParagraph.append(emojiButton);
             targetParagraph.append(emojiCounter);
