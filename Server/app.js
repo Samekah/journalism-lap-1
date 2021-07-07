@@ -39,6 +39,26 @@ app.get('/data/:tag', (req, res) => {
     }
 });
 
+function generateRandInt(length){
+    return Math.floor(Math.random() * length)
+}
+
+app.get('/random', (req, res) => {
+    try {
+        let data1 = data[generateRandInt(data.length)]
+        let data2 = data[generateRandInt(data.length)]
+        while (data2 === data1){
+            data2 = data[generateRandInt(data.length)]
+        }
+        let data3 = data[generateRandInt(data.length)]
+        while (data2 === data3 || data1 === data3){
+            data3 = data[generateRandInt(data.length)];
+        }
+        res.send([data1, data2, data3]);
+    } catch (error){
+        console.log(error);
+    }
+})
 
 
 app.post('/data', (req,res) => {
