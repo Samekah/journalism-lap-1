@@ -26,6 +26,7 @@ let textArea = document.getElementById('articleToSubmit');
 textArea.addEventListener('keyup', countFunc);
 let giphyButton = document.getElementById('giphSearch');
 giphyButton.addEventListener('click', searchGif)
+let catList = ['music', 'sport', 'film', 'lifestyle', 'news', 'other'];
 textArea.addEventListener('change', () => {
     if (textArea.value){
         for (let i = 0; i< catList.length; i++){
@@ -39,7 +40,6 @@ textArea.addEventListener('change', () => {
     }
 
 })
-let catList = ['music', 'sport', 'film', 'lifestyle', 'news', 'other'];
 for (let i = 0; i < catList.length; i++){
     let radioButton = document.getElementById(catList[i]);
     radioButton.addEventListener('click', () => {

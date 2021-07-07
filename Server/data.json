@@ -71,7 +71,7 @@
       "go sports!",
       "I love leonard"
     ],
-    "emoji1": 31,
+    "emoji1": 32,
     "emoji2": 8,
     "emoji3": 6,
     "gif": "https://media2.giphy.com/media/htFUXJH5vjgIw/200.gif?cid=b830f683tqdvld6c1jkv2o4sneie7h4509m1vcdp33nl62r9&rid=200.gif&ct=g"
@@ -82,8 +82,10 @@
     "tag": "News",
     "article": "This is a new article where I'm going to test other things",
     "date": "2021-07-07T15:44:51.466Z",
-    "comments": [],
-    "emoji1": 0,
+    "comments": [
+      "Hello"
+    ],
+    "emoji1": 3,
     "emoji2": 0,
     "emoji3": 0,
     "gif": "https://media0.giphy.com/media/gw3IWyGkC0rsazTi/200.gif?cid=b830f683trczcsr11ocuciy3f78iu6xutl53ty0kybdm64se&rid=200.gif&ct=g"
