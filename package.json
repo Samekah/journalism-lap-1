@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+  
+}
+
+"scripts": {
+  "test": "jest --watch"
+},
+
+"scripts": {
+  "test": "jest --watch --silent"
+  "coverage": "jest --coverage"
+},
