@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.58% </span>
+                <span class="strong">73.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>45/62</span>
+                <span class='fraction'>53/72</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">41.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>5/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/12</span>
+                <span class='fraction'>10/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.41% </span>
+                <span class="strong">73.53% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>42/58</span>
+                <span class='fraction'>50/68</span>
             </div>
         
             
@@ -162,7 +162,14 @@
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -203,18 +210,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -308,18 +322,25 @@ app.get('/data/:tag', (req, res) =&gt; {
     }
 });
 &nbsp;
-app.get('/random', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-    // let randInt = Math.floor(Math.random() * data.length)
-    // let data1 = data[randInt]
-    // let data2 = data[randInt]
-    // while (data2 === data1){
-    //     data2 = data[randInt]
-    // }
-    // let data3 = data[randInt]
-    // while (data2 === data3){
-    //     data3 = data[randInt];
-    // }
-<span class="cstat-no" title="statement not covered" >    res.send(data[randInt]);</span>
+function generateRandInt(length){
+    return Math.floor(Math.random() * length)
+}
+&nbsp;
+app.get('/random', (req, res) =&gt; {
+    try {
+        let data1 = data[generateRandInt(data.length)]
+        let data2 = data[generateRandInt(data.length)]
+        while (data2 === data1){
+<span class="cstat-no" title="statement not covered" >            data2 = data[generateRandInt(data.length)]</span>
+        }
+        let data3 = data[generateRandInt(data.length)]
+        while (data2 === data3 || data1 === data3){
+<span class="cstat-no" title="statement not covered" >            data3 = data[generateRandInt(data.length)];</span>
+        }
+        res.send([data1, data2, data3]);
+    } catch (error){
+<span class="cstat-no" title="statement not covered" >        console.log(error);</span>
+    }
 })
 &nbsp;
 &nbsp;
@@ -379,7 +400,7 @@ module.exports = app;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jul 07 2021 11:32:15 GMT+0100 (British Summer Time)
+                at Wed Jul 07 2021 11:54:39 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="prettify.js"></script>

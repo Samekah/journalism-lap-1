@@ -54,6 +54,12 @@ describe ('API Server', () => {
             .expect(404, done);
     })
 
+    test('responds to get /random with 200', (done) => {
+        request(api)
+            .get('/random')
+            .expect(200, done)
+    })
+
     test('responds to emoji counter put request with 204', (done) => {
         request(api)
             .put("/data")
