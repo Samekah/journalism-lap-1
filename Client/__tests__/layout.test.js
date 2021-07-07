@@ -31,6 +31,19 @@ describe('home.html elements', () => {
         let navItems = document.querySelectorAll("ul.navbar-nav li")
         expect(navItems).toHaveLength(7);
     })
+
+    test("Each navigation button has a link",() => {
+        let navItems = document.querySelectorAll("ul.navbar-nav li.nav-item:not(.active) a")
+        let navItemLinks = [];
+
+        [...navItems].forEach(function(item){
+            navItemLinks.push(item.getAttribute("href"));
+        })
+
+        expect(navItemLinks).toHaveLength(6);
+        expect(navItemLinks).toEqual(expect.arrayContaining([expect.stringContaining("tagPage.html?tag=")]));
+    })
+
     test('There is a Navbar', () => {
         let navBar = document.querySelector('nav');
         expect(navBar).toBeTruthy();
