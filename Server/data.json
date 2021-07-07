@@ -16,7 +16,15 @@
       "This is a fifth comment.",
       "This is a sixth comment.",
       "This is a seventh comment.",
-      "This comment is being created by the Jest test suite"
+      "This comment is being created by the Jest test suite",
+      "Hey",
+      "hey",
+      "hey",
+      "Hey",
+      "Hey",
+      "Hey",
+      "Hey",
+      "go sports x2"
     ],
     "gif": ""
   },
@@ -27,7 +35,7 @@
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor consectetur erat, a tincidunt mi imperdiet sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec sagittis tellus placerat dui laoreet maximus. Nulla nec tristique enim. Phasellus egestas et augue at pulvinar. Donec iaculis tristique pellentesque. Nullam ullamcorper facilisis malesuada. Cras congue, neque quis pretium lobortis, nisl massa blandit augue, ut accumsan lorem tellus sit amet nisi. Aenean vel tortor ligula. Quisque sagittis ipsum volutpat feugiat blandit. Cras lobortis, est id iaculis varius, eros purus rutrum enim, ac luctus ex turpis eget turpis.",
     "date": "2021-07-05T13:37:52.653Z",
     "emoji1": 20,
-    "emoji2": 14,
+    "emoji2": 15,
     "emoji3": 14,
     "comments": [
       "A test comment",
@@ -42,8 +50,12 @@
     "tag": "Lifestyle",
     "article": "Test for date arrangement",
     "date": "2021-07-06T13:55:50.338Z",
-    "comments": [],
-    "emoji1": 44,
+    "comments": [
+      "hey",
+      "something other than hey",
+      "whats up"
+    ],
+    "emoji1": 48,
     "emoji2": 13,
     "emoji3": 8,
     "gif": ""
@@ -54,10 +66,26 @@
     "tag": "Sport",
     "article": "I am testing the sport category",
     "date": "2021-07-06T16:37:47.823Z",
-    "comments": [],
-    "emoji1": 9,
-    "emoji2": 4,
-    "emoji3": 4,
+    "comments": [
+      "hey",
+      "go sports!",
+      "I love leonard"
+    ],
+    "emoji1": 31,
+    "emoji2": 8,
+    "emoji3": 6,
     "gif": "https://media2.giphy.com/media/htFUXJH5vjgIw/200.gif?cid=b830f683tqdvld6c1jkv2o4sneie7h4509m1vcdp33nl62r9&rid=200.gif&ct=g"
+  },
+  {
+    "title": "I'm trying new things",
+    "id": 5,
+    "tag": "News",
+    "article": "This is a new article where I'm going to test other things",
+    "date": "2021-07-07T15:44:51.466Z",
+    "comments": [],
+    "emoji1": 0,
+    "emoji2": 0,
+    "emoji3": 0,
+    "gif": "https://media0.giphy.com/media/gw3IWyGkC0rsazTi/200.gif?cid=b830f683trczcsr11ocuciy3f78iu6xutl53ty0kybdm64se&rid=200.gif&ct=g"
   }
 ]

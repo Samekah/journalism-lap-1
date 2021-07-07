@@ -104,10 +104,10 @@ function addNewArticle(length){
         }
     }
     console.log(checkedButton);
-    if (titleInput){
+    if (titleInput.value !== ""){
         titleToUse = titleInput.value;
     } else {
-        titleToUse = `Article ${length + 1}`;
+        titleToUse = `An Untitled Article`;
     }
     let selectedGif = document.querySelector('button[class="selected"] img');
     let source = "";
@@ -127,7 +127,11 @@ async function postJsonData(jsonObject) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(jsonObject)
     });
-    const actualResponse = await response.json();
+    navigateToHome();
+}
+
+function navigateToHome(){
+    window.location.assign("home.html")
 }
 
 async function searchGif(e){

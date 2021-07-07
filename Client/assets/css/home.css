@@ -26,25 +26,14 @@ h5 {
 #popularSort {
   margin-right: 100px;
 }
-
-#mostRecent {
-  border: solid 2px black;
-  height: 800px;
-  width: 800px !important;
-  margin-left: 100px !important;
-  margin-top: 50px;
-  overflow: auto;
-  display: inline-block;
+button {
+  border-radius: 5px !important;
+  border: solid gray 2px;
 }
 
-#mostPopular {
-  display: inline-block;
-  border: solid 2px black;
-  height: 800px;
-  width: 800px !important;
-  margin-left: 910px !important;
-  margin-top: 50px;
-  overflow: auto;
+button a {
+  color: black;
+  text-decoration: none;
 }
 
 button[id="createPost"]a:link {
