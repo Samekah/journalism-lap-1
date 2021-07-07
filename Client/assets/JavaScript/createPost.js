@@ -14,6 +14,9 @@ class Article {
 }
 const API_KEY = "MjgWi5LAv7OcAlh9hzV3qtIF8G9eb4o3";
 
+window.onload = function() {
+    getRadioButton();
+};
 let targetParagraph = document.getElementById("test");
 let titleInput = document.getElementById("postTitle");
 let formButton = document.getElementById('formSubmit');
@@ -68,6 +71,17 @@ newsRadioButton.addEventListener('click', () => {
         formButton.disabled = false;
     }
 })
+
+function getRadioButton(){
+    let id = localStorage.getItem("tag");
+    console.log(id);
+    if (id){
+        let buttonToCheck = document.getElementById(id.toLowerCase());
+        buttonToCheck.checked = true;
+        localStorage.setItem("tag", "");
+    }
+}
+
 
 async function getDataLength(e){
     e.preventDefault();

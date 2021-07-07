@@ -3,7 +3,7 @@ window.onload = function() {
 };
 let sectionToAppend = document.getElementById('tagData');
 const queryString = window.location.search;
-console.log(queryString);
+
 let recentFilterButton = document.getElementById("recentFilter");
 recentFilterButton.addEventListener('click', ()=>{
     sectionToAppend.innerHTML = "";
@@ -14,10 +14,15 @@ popularFilterButton.addEventListener('click', ()=>{
     sectionToAppend.innerHTML = "";
     getTagData("popular");
 })
+let createPostButton = document.getElementById('postBtn');
+createPostButton.addEventListener('click', addToLocalStorage);
 const urlParams = new URLSearchParams(queryString);
 
 document.getElementById('pageName').textContent = urlParams.get('tag');
 
+function addToLocalStorage(){
+    localStorage.setItem("tag", urlParams.get('tag'));
+}
 
 async function getTagData(filter){
     let data = await fetch(`http://localhost:3000/data/${urlParams.get('tag')}`);
