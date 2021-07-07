@@ -66,7 +66,7 @@ describe('createPost.html', () => {
 
     test('it has a body', () => {
         let body = document.querySelector('body');
-        expect(header).toBeTruthy();
+        expect(body).toBeTruthy();
     })
 
     test('it has a main', () => {
