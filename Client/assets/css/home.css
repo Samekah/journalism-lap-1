@@ -50,3 +50,8 @@ h5 {
 button[id="createPost"]a:link {
   text-decoration: none;
 }
+
+button[id^="id"] {
+  background: none !important;
+  border: none !important;
+}

@@ -14,6 +14,10 @@ class Article {
 }
 const API_KEY = "MjgWi5LAv7OcAlh9hzV3qtIF8G9eb4o3";
 
+window.onload = function() {
+    getRadioButton();
+    addCarouselItems();
+};
 let targetParagraph = document.getElementById("test");
 let titleInput = document.getElementById("postTitle");
 let formButton = document.getElementById('formSubmit');
@@ -68,6 +72,17 @@ newsRadioButton.addEventListener('click', () => {
         formButton.disabled = false;
     }
 })
+
+function getRadioButton(){
+    let id = localStorage.getItem("tag");
+    console.log(id);
+    if (id){
+        let buttonToCheck = document.getElementById(id.toLowerCase());
+        buttonToCheck.checked = true;
+        localStorage.setItem("tag", "");
+    }
+}
+
 
 async function getDataLength(e){
     e.preventDefault();
@@ -157,18 +172,40 @@ function changeBorder(id, json){
     let selected = document.getElementById(id);
     selected.classList.remove("removeBorder");
     selected.classList.add("selected");
-    // let fakeData = [{date: "2021-07-05T13:37:52.653Z"},
-    //                  {date: "2021-07-06T13:55:50.338Z"}]
-    // fakeData.sort((a, b) => {
-    //     let da = new Date(a.date),
-    //     db = new Date(b.date);
-    //     return db - da;
-    // });
-    // console.log(fakeData);
 }
 
 function countFunc(){
     let characterCounter = document.getElementById('counterDisplay');
     let characterNumber = textArea.value.length;
     characterCounter.textContent = `Character Count: ${characterNumber} (limit 700)`;
+}
+
+async function addCarouselItems(){
+    let randomData = await fetch('http://localhost:3000/random')
+    let dataJson = await randomData.json();
+    buildArticles(dataJson);
+}
+
+function buildArticles(data){
+    for (let i=0; i<data.length; i++){
+        let sectionToAppend = document.getElementById(`carousel${i+1}`);
+        let title = document.createElement('h2')
+        title.textContent = data[i].title;
+        sectionToAppend.append(title);
+        let timeStamp = document.createElement('h4');
+        let timeStampYear = data[i].date.slice(0,10);
+        let timeStampTime = data[i].date.slice(11,16);
+        timeStamp.textContent = `${timeStampYear}, ${timeStampTime}`
+        sectionToAppend.append(timeStamp);
+        let para = document.createElement('p');
+        para.textContent = data[i].article;
+        sectionToAppend.append(para);
+        if (data[i].gif){
+            let newGIF = document.createElement('img');
+            newGIF.src = data[i].gif;
+            newGIF.style.display = "block";
+            newGIF.style.marginBottom = "8px";
+            sectionToAppend.append(newGIF); 
+        }
+    }
 }
