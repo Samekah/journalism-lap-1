@@ -5,7 +5,7 @@
     "title": "Article 1",
     "article": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitor malesuada nunc in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque imperdiet sapien, et ullamcorper augue imperdiet eget. Curabitur sodales, erat sed efficitur feugiat, purus nisl egestas lectus, vitae elementum leo justo quis nisi. Morbi in malesuada tellus. Duis nec arcu nisi. Suspendisse potenti.",
     "date": "2021-07-05T13:37:52.653Z",
-    "emoji1": 20,
+    "emoji1": 25,
     "emoji2": 9,
     "emoji3": 7,
     "comments": [
@@ -15,7 +15,8 @@
       "This is another new comment.",
       "This is a fifth comment.",
       "This is a sixth comment.",
-      "This is a seventh comment."
+      "This is a seventh comment.",
+      "This comment is being created by the Jest test suite"
     ],
     "gif": ""
   },
@@ -38,7 +39,7 @@
   {
     "title": "Test Title",
     "id": 3,
-    "tag": "Sport",
+    "tag": "Lifestyle",
     "article": "Test for date arrangement",
     "date": "2021-07-06T13:55:50.338Z",
     "comments": [],

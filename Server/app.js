@@ -26,16 +26,19 @@ app.get('/data', (req, res) => {
 });
 
 app.get('/data/:tag', (req, res) => {
-    let userTag = req.params.tag;
-    let result = data.filter(dataSet => dataSet.tag === userTag);
-    res.send(result);
+    try {
+        let userTag = req.params.tag;
+        let result = data.filter(dataSet => dataSet.tag === userTag);     
+        if (result.length == 0){
+            throw new Error("This tag has no data or doesn't exist!")
+        } else {
+            res.send(result); 
+        }
+    } catch (error){
+        res.status(404).send({message: error.message});
+    }
 });
 
-app.get('/:other', (req, res) => {
-    let userOther = req.params.other
-    let result = data.filter(dataSet => dataSet.other === userOther);
-    res.send(result);
-});
 
 
 app.post('/data', (req,res) => {
@@ -63,7 +66,7 @@ app.put("/data", (req, res) => {
         } else if (emojiString === "emojiButton3"){
             requestedArticle.emoji3 += 1;
         }
-        res.send(data);
+        res.status(204).send(data);
         reWriteFile(data);
     } catch (error) {
         console.log(error);
@@ -78,7 +81,7 @@ app.put("/", (req, res) => {
         let requestedArticle = data.find(dataSet => dataSet.id === id);
         // console.log(requestedArticle);
         requestedArticle.comments.push(commentToAppend);
-        res.send(data)
+        res.status(204).send(data)
         reWriteFile(data);
     } catch (error) {
         console.log(error);
