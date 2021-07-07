@@ -137,8 +137,9 @@ function extractArticles(data, filter){
         commentSection.append(newHeader);
         let newCommentArea = document.createElement('textarea');
         newCommentArea.cols = "33";
-        newCommentArea.rows = "5";
+        newCommentArea.rows = "2";
         newCommentArea.id = "newComment";
+        newCommentArea.maxLength = 100;
         commentSection.append(newCommentArea);
         let yetAnotherLineBreak = document.createElement('br');
         commentSection.append(yetAnotherLineBreak);

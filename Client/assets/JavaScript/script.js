@@ -123,7 +123,8 @@ function extractArticles(data, word){
         commentSection.append(newHeader);
         let newCommentArea = document.createElement('textarea');
         newCommentArea.cols = "33";
-        newCommentArea.rows = "5";
+        newCommentArea.rows = "2";
+        newCommentArea.maxLength = 100;
         newCommentArea.id = "newComment";
         commentSection.append(newCommentArea);
         let yetAnotherLineBreak = document.createElement('br');
