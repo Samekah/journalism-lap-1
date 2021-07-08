@@ -1,0 +1,46 @@
+textarea {
+  resize: none !important;
+}
+
+h5 {
+  display: inline;
+  padding: 10px;
+}
+#borderMe {
+  border: solid 2px black;
+}
+
+#dropdown {
+  margin-right: 300px;
+}
+
+.col-5 {
+  border: solid 2px black;
+  height: 800px !important;
+  width: 800px !important;
+  overflow: auto;
+}
+#recentSort {
+  margin-left: 100px;
+}
+#popularSort {
+  margin-right: 100px;
+}
+button {
+  border-radius: 5px !important;
+  border: solid gray 2px;
+}
+
+button a {
+  color: black;
+  text-decoration: none;
+}
+
+button[id="createPost"]a:link {
+  text-decoration: none;
+}
+
+button[id^="id"] {
+  background: none !important;
+  border: none !important;
+}
