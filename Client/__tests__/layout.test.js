@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const homeHtml = fs.readFileSync(path.resolve(__dirname, '../home.html'), 'utf8');
 const createPost = fs.readFileSync(path.resolve(__dirname, '../createPost.html'), 'utf8');
+
 describe('home.html elements', () => {
     beforeAll(() => {
         document.documentElement.innerHTML = homeHtml.toString();

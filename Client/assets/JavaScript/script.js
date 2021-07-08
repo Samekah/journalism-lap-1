@@ -2,8 +2,7 @@ window.onload = function() {
     getAllData("recent");
     getAllData("popular");
   };
-let recentTargetParagraph = document.getElementById("recentSort");
-let popularTargetParagraph = document.getElementById("popularSort");
+
 
 
 async function getAllData(word){
@@ -13,6 +12,8 @@ async function getAllData(word){
 }
 
 function extractArticles(data, word){
+    let recentTargetParagraph = document.getElementById("recentSort");
+let popularTargetParagraph = document.getElementById("popularSort");
     let targetParagraph;
     if (word === "recent"){
         data.sort((a, b) => {
@@ -202,4 +203,8 @@ function showCommentSection(id, word){
             sectionToShow.style.display = "block";
             break;
     }
+}
+
+module.exports = {
+    extractArticles
 }
